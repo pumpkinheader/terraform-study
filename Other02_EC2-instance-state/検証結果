@@ -1,0 +1,12 @@
+インスタンスを手動停止したところ以下差分がrefresh差分として出た
+  ~ resource "aws_instance" "foo" {
+      ~ associate_public_ip_address          = true -> false
+        id                                   = "i-0804684a37fac6ae1"
+      ~ instance_state                       = "running" -> "stopped"
+      - public_ip                            = "52.197.57.111" -> null
+
+タグとEIPの付け替えを行ったところ、停止状態のままつけ変わった
+インスタンスタイプ変更を行ったところ、起動状態になった。このときrefreshもどこかでされているのか、正しい状態にあっている。
+→ terraform上はchangeのみだが、ホスト移し替えのために再起動されるので自然。
+→ stateの更新タイミングは、サイトによっては refresh -> applyとなっているが、そうなると矛盾しないか？
+→ apply結果をもってrefreshしているのではないだろうか（コードを見ないとわからない）

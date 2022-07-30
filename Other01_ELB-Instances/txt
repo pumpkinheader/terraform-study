@@ -1,0 +1,29 @@
+
+Note: Objects have changed outside of Terraform
+
+Terraform detected the following changes made outside of Terraform since the last "terraform apply":
+
+  # aws_elb.bar has changed
+  ~ resource "aws_elb" "bar" {
+        id                          = "Other01-ELB-Instances-elb"
+      ~ instances                   = [
+          + "i-01a526a2da8a37183",
+          + "i-0738f3434cc26a4b1",
+        ]
+        name                        = "Other01-ELB-Instances-elb"
+        tags                        = {
+            "Environment" = "kabocha-all"
+            "Terraform"   = "true"
+        }
+        # (15 unchanged attributes hidden)
+
+
+        # (2 unchanged blocks hidden)
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the relevant attributes using ignore_changes, the following plan may include actions to undo or respond to these changes.
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+No changes. Your infrastructure matches the configuration.
