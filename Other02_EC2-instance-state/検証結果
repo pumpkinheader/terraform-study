@@ -1,3 +1,4 @@
+## insntance_stateが差分（refresh）対象になっているとき、本当にApplyして平気なのか？
 インスタンスを手動停止したところ以下差分がrefresh差分として出た
   ~ resource "aws_instance" "foo" {
       ~ associate_public_ip_address          = true -> false
